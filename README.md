@@ -12,12 +12,12 @@ Built with **Python**, **LangChain**, **Google Gemini**, and **ChromaDB**, this 
 
 ## 📁 Project Structure
 
-```text
+```
 RegulatoryExtractAI/
 │
 ├── data/
-│   ├── messy_inputs/         # Put sample user applications here (.txt)
-│   └── regulatory_docs/      # Put official compliance manuals here (.txt)
+│   ├── messy_inputs/         # Put sample user applications here (.pdf)
+│   └── regulatory_docs/      # Put official compliance manuals here (.pdf)
 │
 ├── src/
 │   ├── indexer.py            # Chunks and embeds regulations into ChromaDB
@@ -27,28 +27,34 @@ RegulatoryExtractAI/
 ├── chroma_db/                # Local vector database (auto-generated)
 ├── .env                      # API keys (not tracked in git)
 ├── .gitignore
-└── README.md
-
+└── README.md 
+```
 🛠️ Installation & Setup (Windows / PowerShell)
 1. Clone the repository
 
 PowerShell
+```
 git clone [https://github.com/akhilsunnykk/RegulatoryExtractAI.git](https://github.com/akhilsunnykk/RegulatoryExtractAI.git)
 cd RegulatoryExtractAI
+```
 2. Create and activate a virtual environment
 
 PowerShell
+```
 python -m venv venv
 .\venv\Scripts\activate
+```
 3. Install dependencies
 
 PowerShell
+```
 pip install langchain langchain-google-genai langchain-community chromadb pydantic python-dotenv
+```
 4. Configure Environment Variables
 Create a .env file in the root directory and add your Google Gemini API key:
-
-Plaintext
+```
 GOOGLE_API_KEY=your_gemini_api_key_here
+```
 💻 Usage
 Step 1: Populate your data folders
 Add your ground-truth regulatory text files to data/regulatory_docs/ and the user applications to test to data/messy_inputs/.
@@ -57,12 +63,16 @@ Step 2: Build the Vector Index
 Run the indexer to embed your regulatory rules. You only need to run this when your rules change.
 
 PowerShell
+```
 python src/indexer.py
+```
 Step 3: Run the Compliance Evaluator
 Run the orchestrator to extract data from the user document and test it against the rules.
 
 PowerShell
+```
 python src/evaluator.py
+```
 🔧 Technology Stack
 Language: Python
 
