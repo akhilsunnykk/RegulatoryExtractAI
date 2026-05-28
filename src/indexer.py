@@ -24,8 +24,7 @@ def index_regulatory_files(directory_path, persist_directory="./chroma_db"):
     splits = text_splitter.split_documents(docs)
 
     print("Embedding and indexing into ChromaDB...")
-    # Swapped to Gemini Embeddings
-    embeddings = GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")
+    embeddings = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001")
     
     vectorstore = Chroma.from_documents(
         documents=splits, 
@@ -36,4 +35,4 @@ def index_regulatory_files(directory_path, persist_directory="./chroma_db"):
     return vectorstore
 
 if __name__ == "__main__":
-    index_regulatory_files("../data/regulatory_docs")
+    index_regulatory_files("data/regulatory_docs")

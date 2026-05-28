@@ -39,7 +39,7 @@ def extract_from_messy_doc(file_path):
     return result
 
 if __name__ == "__main__":
-    sample_path = "../data/messy_inputs/sample_application.pdf"
+    sample_path = "data/messy_inputs/sample_application.pdf"
     if os.path.exists(sample_path):
         extracted_json = extract_from_messy_doc(sample_path)
         print(extracted_json.model_dump_json(indent=2))
